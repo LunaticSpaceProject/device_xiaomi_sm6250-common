@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    CameraGo
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -107,6 +107,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
+#Hardware
+PRODUCT_BOARD_PLATFORM := sm8150
+PRODUCT_USES_QCOM_HARDWARE := true
+
+# Hals
+SRC_AUDIO_HAL_DIR := hardware/qcom-caf/$(PRODUCT_BOARD_PLATFORM)/audio
+SRC_DISPLAY_HAL_DIR := hardware/qcom-caf/$(PRODUCT_BOARD_PLATFORM)/display
+SRC_MEDIA_HAL_DIR := hardware/qcom-caf/$(PRODUCT_BOARD_PLATFORM)/media
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -143,9 +152,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sm6250
 
-# MiXplorer
+# LiveDisplay native
 PRODUCT_PACKAGES += \
-   MiXplorer
+    vendor.lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -164,8 +173,12 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
-    #$(LOCAL_PATH)/overlay-lineage/packages/apps/Snap \
+    $(LOCAL_PATH)/overlay-lineage/packages/apps/Snap \
     $(LOCAL_PATH)/overlay-system
+
+# OTA
+PRODUCT_HOST_PACKAGES += \
+    signapk
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -198,7 +211,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/qcom-caf/$(PRODUCT_BOARD_PLATFORM)
 
 # Telephony
 PRODUCT_PACKAGES += \
