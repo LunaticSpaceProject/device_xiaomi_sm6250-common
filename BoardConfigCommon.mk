@@ -67,7 +67,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_SOURCE := kernel/xiaomi/joyeuse2
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6250
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
