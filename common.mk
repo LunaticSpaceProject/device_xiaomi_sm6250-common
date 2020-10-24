@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    CameraGo
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -143,6 +143,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sm6250
 
+# MiXplorer
+PRODUCT_PACKAGES += \
+   MiXplorer
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
@@ -160,7 +164,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
-    $(LOCAL_PATH)/overlay-lineage/packages/apps/Snap \
+    #$(LOCAL_PATH)/overlay-lineage/packages/apps/Snap \
     $(LOCAL_PATH)/overlay-system
 
 # Partitions
@@ -177,6 +181,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc \
     $(LOCAL_PATH)/rootdir/bin/init.recovery.qcom.sh:recovery/root/init.recovery.qcom.sh
+
+# Recorder
+PRODUCT_PACKAGES += \
+    KimciRecorder
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -227,6 +235,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
+
+#Via
+PRODUCT_PACKAGES += \
+    Via
 
 # Vulkan
 PRODUCT_COPY_FILES += \
